@@ -299,6 +299,7 @@ async function loadArtworks() {
             } else if (entry.cv) {
                 const artist = document.querySelector('.artist-name');
                 artist.textContent = `${entry.cv.name} ${entry.cv.surname}`;
+                document.title = `${entry.cv.name} ${entry.cv.surname}`;
 
                 if (entry.cv.bio) {
                     const bio = document.querySelector('.bio');
