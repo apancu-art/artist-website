@@ -44,7 +44,7 @@
 }
 
 .artwork-container {
-    background-color: lightgray;
+    background-color: rgb(232,232,232);
     box-shadow: none;
     cursor: zoom-in;
     transition: box-shadow 0.3s ease;
