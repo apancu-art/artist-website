@@ -329,8 +329,15 @@ async function loadArtworks() {
                     for (const link of entry.contact.links) {
                         const element = document.createElement('p');
                         const anchor = document.createElement('a');
-                        anchor.href = link.url;
                         anchor.textContent = link.label;
+                        let url = link.url;
+                        if (link.type == "email") {
+                            url = `mailto:${link.label}`;
+                        } else if (link.type == "instagram") {
+                            let label = link.label.replace('@', '');
+                            url = `https://www.instagram.com/${label}`;
+                        }
+                        anchor.href = url;
                         element.appendChild(anchor);
                         links.appendChild(element);
                     }
