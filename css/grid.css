@@ -152,7 +152,6 @@
 
 .column-grid {
     display: flex;
-    /*justify-content: space-between;*/
     gap: 50px;
 }
 
@@ -172,8 +171,8 @@
     max-width: 380px;
 }
 
-.last-col {
-    margin-right: 20%;
+.col-460 {
+    max-width: 500px;
 }
 
 .image-column {

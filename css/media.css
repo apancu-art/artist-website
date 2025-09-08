@@ -1,4 +1,12 @@
 
+
+@media (max-width: 1280px) {
+
+    p {
+        font-size: .9rem;
+    }
+}
+
 @media (max-width: 840px) {
     .column-grid {
         flex-direction: column;
