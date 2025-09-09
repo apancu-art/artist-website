@@ -122,7 +122,7 @@
     align-items: center;
     font-size: 2rem;
     color: #555;
-    background-color: lightgray;
+    background-color: rgb(232,232,232);
     padding: 10px;
     box-sizing: border-box;
 }
