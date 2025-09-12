@@ -305,6 +305,15 @@
 										"8x10": {
 											"available": 100
 										}
+									},
+									{
+										"11x14": {
+											"paper size": "11 x 14 in.",
+											"image size": "7.25 x 8.54 in.",
+											"paper": "Somerset Pura Velvet 255gsm",
+											"price": "$150",
+											"available": 100
+										}
 									}
 								]
 							}
@@ -315,11 +324,15 @@
 								"title": "Swimmers, Detail",
 								"year": 2024,
 								"medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
-								"dimensions": "12.2 x 8.1 in.",
+								"dimensions": "Image: 9.25 x 6.17 in., Paper: 14 x 11 in.",
 								"resolution": "3648x2433",
 								"series": [
 									{
-										"8x10": {
+										"11x14": {
+											"paper size": "14 x 11 in.",
+											"image size": "9.25 x 6.17 in.",
+											"paper": "Somerset Pura Velvet 255gsm",
+											"price": "$150",
 											"available": 100
 										}
 									}
@@ -354,11 +367,15 @@
 								"title": "Tangled Garden",
 								"year": 2024,
 								"medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
-								"dimensions": "7.2 x 10.8 in.",
+								"dimensions": "Image: 6.0 x 9.0 in., Paper: 11 x 14 in.",
 								"resolution": "2157x3236",
 								"series": [
 									{
-										"8x10": {
+										"11x14": {
+											"paper size": "11 x 14 in.",
+											"image size": "6.0 x 9.0 in.",
+											"paper": "Somerset Pura Velvet 255gsm",
+											"price": "$150",
 											"available": 100
 										}
 									}
@@ -368,7 +385,7 @@
 					]
 				},
 				{
-					"name": "Beyond the Coral Reef",
+					"name": "The Reef",
 					"images": [
 						{
 							"filename": "embryo.jpg",
