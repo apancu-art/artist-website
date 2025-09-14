@@ -45,9 +45,9 @@
               }
             },
             {
-              "filename": "battle at sea.jpg",
+              "filename": "hill scene.jpg",
               "info": {
-                "title": "Battle at Sea",
+                "title": "Hill scene",
                 "year": 2024,
                 "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
                 "dimensions": "9.3 x 3.5 in.",
@@ -376,9 +376,43 @@
           "name": "Beyond the Reef",
           "images": [
             {
-              "filename": "embryo.jpg",
+              "filename": "embryo detail 3.jpg",
               "info": {
-                "title": "Embryonic Journey",
+                "title": "Embryonic Journey p.1",
+                "year": 2024,
+                "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
+                "dimensions": "9.2 x 9.2 in.",
+                "resolution": "2751x2752",
+                "series": [
+                  {
+                    "8x10": {
+                      "available": 100
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "filename": "embryo detail 1.jpg",
+              "info": {
+                "title": "Embryonic Journey p.2",
+                "year": 2024,
+                "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
+                "dimensions": "9.2 x 9.2 in.",
+                "resolution": "2751x2752",
+                "series": [
+                  {
+                    "8x10": {
+                      "available": 100
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "filename": "embryo detail 4.jpg",
+              "info": {
+                "title": "Embryonic Journey p.3",
                 "year": 2024,
                 "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
                 "dimensions": "9.2 x 9.2 in.",
