@@ -25,8 +25,8 @@
 }
 
     .tab-btn.active {
-        color: black;
-        font-weight: 500;
+        text-decoration: underline;
+        text-underline-offset: 8px;
     }
 
 .artwork-grid {

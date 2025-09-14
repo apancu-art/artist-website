@@ -376,43 +376,9 @@
           "name": "Beyond the Reef",
           "images": [
             {
-              "filename": "embryo detail 3.jpg",
+              "filename": "embryo.jpg",
               "info": {
-                "title": "Embryonic Journey p.1",
-                "year": 2024,
-                "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
-                "dimensions": "9.2 x 9.2 in.",
-                "resolution": "2751x2752",
-                "series": [
-                  {
-                    "8x10": {
-                      "available": 100
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "filename": "embryo detail 1.jpg",
-              "info": {
-                "title": "Embryonic Journey p.2",
-                "year": 2024,
-                "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
-                "dimensions": "9.2 x 9.2 in.",
-                "resolution": "2751x2752",
-                "series": [
-                  {
-                    "8x10": {
-                      "available": 100
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "filename": "embryo detail 4.jpg",
-              "info": {
-                "title": "Embryonic Journey p.3",
+                "title": "Embryonic Journey",
                 "year": 2024,
                 "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
                 "dimensions": "9.2 x 9.2 in.",
@@ -532,13 +498,16 @@
         "1992-4: Minor in Fine Arts, Université de Montréal, Canada"
       ],
       "bio": [
-        "Andrei Pancu (b. 1968, Bucharest, Romania) is an Ottawa-based contemporary artist whose practice centers on inducing patination reactions on metal plates. His process of impressing deterministic patterns onto stochastically evolving patinas creates vibrant, amorphous fields of interference subtly colored by the oxidation of the metal substrate itself. This unique method allows Pancu to explore the profound dialogue between human will and natural entropy, reflecting on themes of order, chaos, and synthesis, drawing inspiration from philosophers such as Hegel.",
-        "For Pancu, the surface of the metal functions as a darkroom plate on which the image develops. He meticulously photographs the ephemeral progression of the patina throughout its development, capturing fleeting states from which he creates limited-edition fine art prints. His works feature fragments of lattice-like structures that form a cryptic visual language, inviting viewers into an active inquiry into surface, memory, and perception, to discover meaning within these evolving, coded landscapes.",
-        "Andrei Pancu studied Fine Arts at the Université de Montréal."
+        "Andrei Pancu (b. 1968, Bucharest, Romania) is a contemporary artist based in Ottawa, Canada. Working with chemically-induced patinas on metal substrates, he is best known for his synthesis of controlled pattern application and naturally evolving oxidation processes. His works are characterized by textured, abstract surfaces where geometric imprints collide with organic flows of color, creating atmospheric compositions that explore order, entropy, and transformation.",
+        "Pancu’s practice engages with themes of memory, perception, and temporality, often evoking a visual language of ancient symbols or fragments of architecture. His ongoing series Strange Attractors, Across the Garden Wall, Cosmic Debris, and Beyond the Reef (2024 -) exemplify his interest in the dance of chaos and control, where images emerge from and dissolve into layered surfaces. The resulting works resist narrative closure, instead inviting viewers into an open-ended search for meaning within ambiguity.",
+        "Pancu studied Fine Arts at the Université de Montréal."
       ],
       "awards": [
       ],
       "exhibitions": [
+        "His works have been presented in exhibitions across Canada and internationally [insert details]",
+        "and are held in private and institutional collections [insert details]. He has participated in residencies and collaborative projects [insert details]", 
+        "continuing to expand his exploration of material processes and conceptual frameworks."
       ]
     }
   },
