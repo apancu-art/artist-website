@@ -307,6 +307,13 @@ async function loadArtworks() {
                         element.innerHTML = part;
                         bio.appendChild(element);
                     }
+                    const statement = document.querySelector('.statement');
+                    for (const part of entry.cv.statement) {
+                        const element = document.createElement('p');
+                        element.className = 'pb-1';
+                        element.innerHTML = part;
+                        statement.appendChild(element);
+                    }
                     const location = document.querySelector('.location');
                     let element = document.createElement('p');
                     element.textContent = `Born in ${entry.cv.birthyear} in ${entry.cv.birthplace}`;
