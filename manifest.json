@@ -13,14 +13,18 @@
             {
               "filename": "bibi.jpg",
               "info": {
-                "title": "Bibi Has a Look",
+                "title": "Bibi has a Look",
                 "year": 2024,
                 "medium": "Giclée print on archival Somerset Velvet paper (edition of 100)",
-                "dimensions": "5.5 x 10.4 in.",
+                "dimensions": "Image: 6.0 x 9.0 in., Paper: 11 x 14 in.",
                 "resolution": "1642x3120",
                 "series": [
                   {
-                    "8x10": {
+                    "11x14": {
+                      "paper size": "11 x 14 in.",
+                      "image size": "6.0 x 9.0 in.",
+                      "paper": "Somerset Pura Velvet 255gsm",
+                      "price": "$150",
                       "available": 100
                     }
                   }
