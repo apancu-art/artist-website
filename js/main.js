@@ -230,6 +230,17 @@ async function loadArtworks() {
             event.preventDefault();
             const nextBtn = document.querySelector('.next-btn');
             if (nextBtn) nextBtn.click();
+        } else if (event.key === 'E' && event.ctrlKey && event.altKey) {
+            event.preventDefault();
+            const bioView = document.querySelector('.bio-view');
+            const statementView = document.querySelector('.statement-view');
+            if (bioView && bioView.offsetParent !== null) { // visible check
+                bioView.style.display = 'none';
+                statementView.style.display = '';
+            } else {
+                bioView.style.display = '';
+                statementView.style.display = 'none';
+            }
         }
     });
 
