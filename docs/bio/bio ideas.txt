@@ -220,3 +220,7 @@ Working draft:
 "",
 "",
 
+Additional info:
+
+Materials - Which metals? Currently only mild (carbon) steel, but also experimenting with and planning to expand into copper and brass. Which chemicals? Currently copper sulfate (sulphate), muriatic acid and phosphoric acid,  but also experimenting with ammonia, liver of sulphur, and many other patina-inducing chemicals. Which tools? The method involves either immersing the metal in the chemicals or brushing the chemicals onto the surface. The stamps are pattern drawings extruded and printed with a 3D printer. The typical size of the metal plates is 4-8 inches wide by 12-16 inches high. The current series names are Strange Attractors, Across the Garden Wall, Cosmic Debris, and Beyond the Reef.
+Visual references - The stamp patterns are repetitive geometric motifs that are recognizably man-made. The intent is for the viewer to perceive in them symbols that look like a language, or at least some form of communication. However, this is just a tease, a ruse to engage the viewer's subconscious in creating the narrative for the composition. Using semiotic terminology, the patterns are composed signifiers that refer to unresolved, unknown signifieds.   

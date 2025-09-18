@@ -2,7 +2,7 @@
 Artist Statement
 
 Current:
-"I work on metal plate, inducing patinas to develop across the surface which I then stamp with intricate patterns. In this process, controlled marks meet unpredictable natural processes, creating vibrant areas of interference. The metal responds with subtle shifts of color, earthy reds, greens, and blues that emerge from the oxidation itself, creating ethereal scenes and landscapes that are revealed rather than made. The recurring motifs I press into the surface look like the remnants of a lost language, engaging the viewer in a hunt for meaning.",
+"I work with steel plates as living surfaces. By brushing on copper sulfate, I coax patinas to bloom and creep across the surface. Onto this shifting ground I stamp geometric patterns that I find or fabricate. In this process, controlled marks meet unpredictable natural processes, creating vibrant areas of interference. The metal responds with subtle shifts of color, earthy reds, greens, and blues that emerge from the oxidation itself, creating ethereal scenes and landscapes that are revealed rather than made. The recurring motifs I press into the surface look like the remnants of a lost language, engaging the viewer in a hunt for meaning.",
 "What drives me is the dialogue between human intervention and natural forces, the inherent tension transforming its component parts into something entirely new. The process is inspired by Hegel's theory of synthesis, with my works developing organically rather than being built up, each piece capturing a moment of becoming, where metal, chemistry, and time converge into something neither fully controlled nor entirely accidental.",
 "Through the mystery of the unfinished and the uncertain, I aim to reawaken a sense of wonder in what is transient and ephemeral. Capturing fleeting states of material becoming, I invite contemplation of memory, surface, and time, and the enduring beauty found in uncertainty."
 
@@ -36,5 +36,17 @@ Expanded version 2:
 I work with metal plates, allowing chemical patinas to develop across surfaces where I have impressed patterns and forms. In this process, controlled marks meet unpredictable oxidation—my stamps and masks guiding the chemistry while natural forces take over. The metal responds with subtle shifts of color: earthy reds, greens, and blues that emerge from the oxidation itself, creating what feel like landscapes discovered rather than made.
 What draws me is the dialogue between intention and chance. The lattice patterns I press into the surface become part of something larger as the patina grows around them—like fragments of a language being written and rewritten by time itself. There's a philosophical echo here of Hegel's synthesis, where opposing forces generate something new, but I'm most interested in the visual poetry that emerges from this collaboration with materials.
 These works aren't built up but revealed through transformation. Each piece captures a moment of becoming—when metal, chemistry, and time converge into something neither fully controlled nor entirely accidental. I invite viewers into this space between order and mystery, where beauty lives in the unfinished and the uncertain.
+
+
+
+Additional info:
+
+Materials - Which metals? Currently only mild (carbon) steel, but also experimenting with and planning to expand into copper and brass. Which chemicals? Currently copper sulfate (sulphate), muriatic acid and phosphoric acid,  but also experimenting with ammonia, liver of sulphur, and many other patina-inducing chemicals. Which tools? The method involves either immersing the metal in the chemicals or brushing the chemicals onto the surface. The stamps are pattern drawings extruded and printed with a 3D printer. The typical size of the metal plates is 4-8 inches wide by 12-16 inches high. The current series names are Strange Attractors, Across the Garden Wall, Cosmic Debris, and Beyond the Reef.
+Visual references - The stamp patterns are repetitive geometric motifs that are recognizably man-made. The intent is for the viewer to perceive in them symbols that look like a language, or at least some form of communication. However, this is just a tease, a ruse to engage the viewer's subconscious in creating the narrative for the composition. Using semiotic terminology, the patterns are composed signifiers that refer to unresolved, unknown signifieds.   
+
+
+
+
+I work with steel plates as living surfaces. By brushing on copper sulfate, I coax patinas to bloom and creep across the surface. Onto this shifting ground I stamp geometric patterns that I find or fabricate.
 
 
