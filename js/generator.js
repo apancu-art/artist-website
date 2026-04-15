@@ -14,7 +14,7 @@ const Sequencer = {
     reset: function() { this.index = 0; }
 };
 
-// 2. THE PATHING ENGINE (Now Pluggable)
+// 2. THE PATHING ENGINE 
 const PathingEngine = {
     
     // Strategy 1: Mathematical Orbit
@@ -41,28 +41,21 @@ const PathingEngine = {
     // Strategy 2: Biological Growth / Capillary Creep
     wanderer: function(numElements, ui) {
         const path = [];
-        let x = ui.width / 2; // Start in center
+        let x = ui.width / 2; 
         let y = ui.height / 2;
         let angle = Math.random() * Math.PI * 2;
-        
-        // Base step distance
         const stepSize = (ui.width / 20) * (1 / ui.complexity); 
 
         for (let i = 0; i < numElements; i++) {
             path.push({ x, y });
-            
-            // Wander organically by shifting angle slightly each step
-            // Or shift harshly by 90 degrees if "miter" is selected
             if (ui.corners === 'miter') {
                 angle += (Math.random() > 0.5 ? Math.PI/2 : -Math.PI/2);
             } else {
                 angle += (Math.random() - 0.5) * (Math.PI / 1.5);
             }
-
             x += Math.cos(angle) * stepSize;
             y += Math.sin(angle) * stepSize;
 
-            // Bounce off the padding boundaries to keep it on the plate
             if (x < config.padding || x > ui.width - config.padding) { 
                 angle = Math.PI - angle; 
                 x = Math.max(config.padding, Math.min(ui.width - config.padding, x)); 
@@ -71,6 +64,48 @@ const PathingEngine = {
                 angle = -angle; 
                 y = Math.max(config.padding, Math.min(ui.height - config.padding, y)); 
             }
+        }
+        return path;
+    },
+
+    // Strategy 3: Chronological / Grid Transcription
+    typewriter: function(numElements, ui) {
+        const path = [];
+        // Calculate an optimal grid based on the number of elements
+        const cols = Math.ceil(Math.sqrt(numElements * (ui.width / ui.height)));
+        const rows = Math.ceil(numElements / cols);
+        
+        const stepX = (ui.width - config.padding * 2) / (cols > 1 ? cols - 1 : 1);
+        const stepY = (ui.height - config.padding * 2) / (rows > 1 ? rows - 1 : 1);
+
+        for (let i = 0; i < numElements; i++) {
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            path.push({
+                x: config.padding + (col * stepX),
+                y: config.padding + (row * stepY)
+            });
+        }
+        return path;
+    },
+
+    // Strategy 4: Golden Ratio / Botanical Radial Growth
+    spiral: function(numElements, ui) {
+        const path = [];
+        const centerX = ui.width / 2;
+        const centerY = ui.height / 2;
+        const maxRadius = Math.min(ui.width, ui.height) / 2 - config.padding;
+
+        for (let i = 0; i < numElements; i++) {
+            // 137.5 degrees is the golden angle
+            const angle = i * 137.5 * (Math.PI / 180); 
+            // Scale the radius outwards evenly based on the sequence index
+            const radius = maxRadius * Math.sqrt(i) / Math.sqrt(numElements);
+            
+            path.push({
+                x: centerX + Math.cos(angle) * radius,
+                y: centerY + Math.sin(angle) * radius
+            });
         }
         return path;
     },
@@ -100,17 +135,13 @@ const Generator = {
         return svg;
     },
 
-    // Calculates the current stroke width based on UI settings and progression (0.0 to 1.0)
     getDynamicStroke: function(baseStroke, progress, dynamicsType) {
-        // Enforce a minimum thickness so lines don't become invisible to 3D printers
         const minStroke = 0.4; 
         let dynamicWidth = baseStroke;
 
         if (dynamicsType === 'taper') {
-            // Thick at start (0.0), thin at end (1.0)
             dynamicWidth = baseStroke * (1 - progress) + minStroke;
         } else if (dynamicsType === 'swell') {
-            // Thin -> Thick -> Thin using a sine wave
             dynamicWidth = (baseStroke * Math.sin(progress * Math.PI)) + minStroke;
         }
         return dynamicWidth;
@@ -147,14 +178,12 @@ const Generator = {
         for (let i = 1; i < coords.length; i++) {
             const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
             
-            // Calculate progression logic
             const progress = i / coords.length;
             const currentStroke = this.getDynamicStroke(ui.stroke, progress, ui.strokeDynamics);
             const rhythmicScale = Sequencer.nextTick() * (ui.scaleVariance ? 1 : 1);
             
             this.applyStyle(path, ui, currentStroke);
             
-            // Because stroke needs to change per segment, we draw individual segments rather than one long path
             let d = `M ${coords[i-1].x} ${coords[i-1].y} `;
             const ctrlX = coords[i-1].x + (coords[i].x - coords[i-1].x) * rhythmicScale;
             const ctrlY = coords[i-1].y + (coords[i].y - coords[i-1].y) * -rhythmicScale;
