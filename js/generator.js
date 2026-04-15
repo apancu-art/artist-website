@@ -279,10 +279,11 @@ const Generator = {
         });
         return svg;
     },
-
+    
     midCentury: function(ui) {
         const svg = this.createSVG(ui);
-        const numElements = Math.floor(30 * ui.complexity);
+        // We reduce the overall count so these complex composite shapes have room to breathe
+        const numElements = Math.floor(20 * ui.complexity); 
         const coords = PathingEngine[ui.pathing](numElements, ui);
         Sequencer.reset();
 
@@ -290,26 +291,121 @@ const Generator = {
             const progress = i / coords.length;
             const currentStroke = this.getDynamicStroke(ui.stroke, progress, ui.strokeDynamics);
             const scale = Sequencer.nextTick() * (ui.scaleVariance ? 1 : 1);
-            
-            if (i % 3 === 0) {
-                const blob = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                this.applyStyle(blob, ui, currentStroke);
-                const r = 15 * scale;
-                let d = `M ${coord.x} ${coord.y - r} `;
-                d += `C ${coord.x + r} ${coord.y - r}, ${coord.x + r*1.5} ${coord.y + r}, ${coord.x} ${coord.y + r} `;
-                d += `C ${coord.x - r*0.8} ${coord.y + r}, ${coord.x - r} ${coord.y - r}, ${coord.x} ${coord.y - r} Z`;
-                blob.setAttribute("d", d);
-                svg.appendChild(blob);
-            } else {
-                for(let k=0; k<3; k++) {
-                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                    const offset = k * currentStroke * 2;
-                    line.setAttribute("x1", coord.x + offset);
-                    line.setAttribute("y1", coord.y);
-                    line.setAttribute("x2", coord.x + offset);
-                    line.setAttribute("y2", coord.y + (15 * scale));
-                    this.applyStyle(line, ui, currentStroke, false, true);
-                    svg.appendChild(line);
+
+            // Cycle through the specific Follis motifs
+            const motifType = i % 4;
+
+            if (motifType === 0) {
+                // MOTIF 1: The Pinched Plane (Left Shape)
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                this.applyStyle(path, ui, currentStroke);
+                
+                const h = 60 * scale;
+                const wTop = 25 * scale;
+                const wMid = 8 * scale;
+
+                // Creating the hyperbolic tension
+                let d = `M ${coord.x - wTop} ${coord.y - h} `; 
+                d += `Q ${coord.x - wMid} ${coord.y}, ${coord.x - wTop} ${coord.y + h} `; 
+                d += `Q ${coord.x} ${coord.y + h*0.8}, ${coord.x + wTop} ${coord.y + h} `; 
+                d += `Q ${coord.x + wMid} ${coord.y}, ${coord.x + wTop} ${coord.y - h} `; 
+                d += `Q ${coord.x} ${coord.y - h*0.8}, ${coord.x - wTop} ${coord.y - h} Z`; 
+                
+                path.setAttribute("d", d);
+                svg.appendChild(path);
+
+                // MOTIF 2: The Nested Spiral (Inside the Plane)
+                if (Math.random() > 0.3) {
+                    const spiral = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    let sd = `M ${coord.x} ${coord.y} `;
+                    let angle = 0;
+                    for(let s = 0; s < 18; s++) {
+                        angle += 0.8;
+                        let r = s * 1.5 * scale;
+                        sd += `L ${coord.x + Math.cos(angle)*r} ${coord.y + Math.sin(angle)*r} `;
+                    }
+                    spiral.setAttribute("d", sd);
+                    this.applyStyle(spiral, ui, currentStroke * 0.7, false, true);
+                    
+                    // Mimic the rough/chalky texture seen in the reference
+                    spiral.setAttribute("stroke-dasharray", `${currentStroke}, ${currentStroke * 1.5}`);
+                    spiral.setAttribute("stroke-linecap", "round");
+                    svg.appendChild(spiral);
+                }
+
+            } else if (motifType === 1) {
+                // MOTIF 3: The Ribbed Spine (Center Shape)
+                const spineHeight = 70 * scale;
+                const spine = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                spine.setAttribute("d", `M ${coord.x} ${coord.y - spineHeight} Q ${coord.x + (15*scale)} ${coord.y}, ${coord.x} ${coord.y + spineHeight}`);
+                this.applyStyle(spine, ui, currentStroke * 0.5, false, true);
+                svg.appendChild(spine);
+
+                // The intersecting tapered seeds
+                const numRibs = 5 + Math.floor(Math.random() * 3);
+                const step = (spineHeight * 1.6) / numRibs;
+                
+                for(let r = 1; r < numRibs; r++) {
+                    const ribY = (coord.y - spineHeight * 0.8) + (r * step);
+                    const ribW = 12 * scale;
+                    const ribH = 2.5 * scale;
+                    
+                    const rib = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    const rd = `M ${coord.x - ribW} ${ribY} Q ${coord.x} ${ribY - ribH}, ${coord.x + ribW} ${ribY} Q ${coord.x} ${ribY + ribH}, ${coord.x - ribW} ${ribY} Z`;
+                    rib.setAttribute("d", rd);
+                    this.applyStyle(rib, ui, currentStroke, true, false);
+                    
+                    // Add a slight rhythmic tilt to the ribs
+                    const tilt = (Math.random() * 10) - 5;
+                    rib.setAttribute("transform", `rotate(${tilt} ${coord.x} ${ribY})`);
+                    svg.appendChild(rib);
+                }
+
+            } else if (motifType === 2 || motifType === 3) {
+                // MOTIF 4: Undulating Pods with Nuclei (Right Shape)
+                const podPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                this.applyStyle(podPath, ui, currentStroke, true, true);
+
+                const podHeight = 120 * scale;
+                const segments = 3; 
+                const segmentH = podHeight / segments;
+                const swellW = 22 * scale;
+                const pinchW = 3 * scale;
+
+                let d = `M ${coord.x} ${coord.y - podHeight/2} `; 
+                
+                // Sweep the right edge down
+                let curY = coord.y - podHeight/2;
+                for(let s = 0; s < segments; s++) {
+                    d += `C ${coord.x + swellW} ${curY + segmentH*0.25}, ${coord.x + swellW} ${curY + segmentH*0.75}, ${coord.x + pinchW} ${curY + segmentH} `;
+                    curY += segmentH;
+                }
+                
+                // Sweep the left edge up
+                for(let s = 0; s < segments; s++) {
+                    d += `C ${coord.x - swellW} ${curY - segmentH*0.25}, ${coord.x - swellW} ${curY - segmentH*0.75}, ${coord.x - pinchW} ${curY - segmentH} `;
+                    curY -= segmentH;
+                }
+                d += "Z";
+                
+                podPath.setAttribute("d", d);
+                svg.appendChild(podPath);
+
+                // Insert the Nuclei (Negative space circles)
+                curY = coord.y - podHeight/2;
+                for(let s = 0; s < segments; s++) {
+                    const circleY = curY + (segmentH / 2);
+                    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    circle.setAttribute("cx", coord.x);
+                    circle.setAttribute("cy", circleY);
+                    circle.setAttribute("r", swellW * 0.45);
+                    
+                    // Invert the fill so the CAD software reads this as a cut-out reservoir within the extruded pod
+                    circle.setAttribute("fill", ui.polarity === 'positive' ? '#ffffff' : '#000000');
+                    circle.setAttribute("stroke", "none");
+                    svg.appendChild(circle);
+                    
+                    curY += segmentH;
                 }
             }
         });
