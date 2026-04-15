@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strange Attractors: Mask Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Strange Attractors Generator</h1>
+        <p>Asemic & Graphic Mask Engine for Steel Patination</p>
+    </header>
+
+    <main>
+        <section class="controls-panel">
+            <div class="control-group">
+                <h3>Visual Syntax</h3>
+                <div class="input-row">
+                    <label for="ruleset">Ruleset:</label>
+                    <select id="ruleset">
+                        <option value="organic">Semiotic: Organic Pathing</option>
+                        <option value="mechanical">Semiotic: Mechanical Blueprint</option>
+                        <option value="midCentury">Graphic: Mid-Century Biomorphic</option>
+                        <option value="bauhaus">Graphic: Bauhaus Geometry</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="polarity">Solid Polarity:</label>
+                    <select id="polarity">
+                        <option value="positive">Positive (Extruded Stamp)</option>
+                        <option value="negative">Negative (Cutout Mask)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Physical Dimensions (CAD)</h3>
+                <div class="input-row">
+                    <label>Width (mm): <input type="number" id="canvas-width" value="150" min="10" max="500"></label>
+                    <label>Height (mm): <input type="number" id="canvas-height" value="150" min="10" max="500"></label>
+                </div>
+                <div class="input-row">
+                    <label>Nozzle/Stroke (mm): <input type="number" id="base-stroke" value="1.2" step="0.2" min="0.4" max="5.0"></label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Attractor Dynamics</h3>
+                <div class="input-row">
+                    <label>Complexity: 
+                        <select id="complexity">
+                            <option value="0.5">Sparse</option>
+                            <option value="1" selected>Standard</option>
+                            <option value="2">Dense</option>
+                            <option value="4">Overload</option>
+                        </select>
+                    </label>
+                    <label>Corner Bias: 
+                        <select id="corners">
+                            <option value="round">Fluid / Sweeping</option>
+                            <option value="miter">Harsh / Jagged</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="input-row checkbox-row">
+                    <label><input type="checkbox" id="toggle-scale-variance" checked> Rhythmic Scale Variance</label>
+                </div>
+            </div>
+
+            <div class="control-group no-border">
+                <h3>Render Toggles</h3>
+                <div class="input-row checkbox-row">
+                    <label><input type="checkbox" id="toggle-stroke" checked> Stroke</label>
+                    <label><input type="checkbox" id="toggle-fill"> Fill</label>
+                </div>
+                <div class="action-row">
+                    <button id="generate-btn" class="primary-btn">Generate New Orbit</button>
+                    <button id="download-btn" class="secondary-btn">Export Physical SVG</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview-panel">
+            <div id="svg-container">
+                </div>
+        </section>
+    </main>
+
+    <script src="generator.js" defer></script>
+</body>
+</html>
