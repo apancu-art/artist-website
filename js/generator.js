@@ -110,6 +110,49 @@ const PathingEngine = {
         return path;
     },
 
+    // Strategy 5: Space-Filling Perfect Coverage
+    hilbert: function(numElements, ui) {
+        const path = [];
+        
+        // Find the necessary "Order" (n) of the curve to match the user's complexity
+        // Order 1 = 4 points, Order 2 = 16 points, Order 3 = 64 points, Order 4 = 256 points
+        let order = 1;
+        while (Math.pow(4, order) < (numElements * 2)) { 
+            order++; 
+        }
+        
+        const totalPoints = Math.pow(4, order);
+        const maxDim = Math.pow(2, order) - 1;
+        
+        // Calculate the physical distance between folds based on your canvas
+        const stepX = (ui.width - config.padding * 2) / maxDim;
+        const stepY = (ui.height - config.padding * 2) / maxDim;
+
+        // Classic d2xy algorithm to map a 1D sequence to a 2D space-filling fold
+        for (let i = 0; i < totalPoints; i++) {
+            let n = Math.pow(2, order);
+            let rx, ry, s, t = i, x = 0, y = 0;
+            
+            for (s = 1; s < n; s *= 2) {
+                rx = 1 & (t / 2);
+                ry = 1 & (t ^ rx);
+                if (ry === 0) {
+                    if (rx === 1) { x = s - 1 - x; y = s - 1 - y; }
+                    let temp = x; x = y; y = temp;
+                }
+                x += s * rx; y += s * ry;
+                t /= 4;
+            }
+            
+            path.push({
+                x: config.padding + (x * stepX),
+                y: config.padding + (y * stepY)
+            });
+        }
+        
+        return path;
+    },
+
     mapRange: function(value, inMin, inMax, outMin, outMax) {
         return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
