@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strange Attractors: Mask Generator</title>
-    <link rel="stylesheet" href="css/generator.css">
+    <title>Generative Masks: Steel Patination Engine</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <h1>Strange Attractors Generator</h1>
-        <p>Asemic & Graphic Mask Engine for Steel Patination</p>
+        <h1>Generative Mask Engine</h1>
+        <p>Asemic & Graphic Patterning for Reactive Steel Patinas</p>
     </header>
 
     <main>
@@ -18,7 +18,7 @@
             <div class="control-group">
                 <h3>Visual Syntax</h3>
                 <div class="input-row">
-                    <label for="ruleset">Ruleset:</label>
+                    <label for="ruleset">Ruleset (Shape):</label>
                     <select id="ruleset">
                         <option value="organic">Semiotic: Organic Pathing</option>
                         <option value="mechanical">Semiotic: Mechanical Blueprint</option>
@@ -36,20 +36,39 @@
             </div>
 
             <div class="control-group">
+                <h3>Spatial & Fluid Dynamics</h3>
+                <div class="input-row">
+                    <label for="pathing">Pathing Strategy:</label>
+                    <select id="pathing">
+                        <option value="attractor">Strange Attractor (Orbit)</option>
+                        <option value="wanderer">The Wanderer (Brownian Growth)</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="stroke-dynamics">Stroke Progression:</label>
+                    <select id="stroke-dynamics">
+                        <option value="constant">Constant Pressure</option>
+                        <option value="taper">Taper (Thick to Thin)</option>
+                        <option value="swell">Swell (Thin, Thick, Thin)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
                 <h3>Physical Dimensions (CAD)</h3>
                 <div class="input-row">
                     <label>Width (mm): <input type="number" id="canvas-width" value="150" min="10" max="500"></label>
                     <label>Height (mm): <input type="number" id="canvas-height" value="150" min="10" max="500"></label>
                 </div>
                 <div class="input-row">
-                    <label>Nozzle/Stroke (mm): <input type="number" id="base-stroke" value="1.2" step="0.2" min="0.4" max="5.0"></label>
+                    <label>Base Stroke (mm): <input type="number" id="base-stroke" value="1.2" step="0.2" min="0.4" max="5.0"></label>
                 </div>
             </div>
 
             <div class="control-group">
-                <h3>Attractor Dynamics</h3>
+                <h3>Complexity & Rhythm</h3>
                 <div class="input-row">
-                    <label>Complexity: 
+                    <label>Density: 
                         <select id="complexity">
                             <option value="0.5">Sparse</option>
                             <option value="1" selected>Standard</option>
@@ -76,18 +95,17 @@
                     <label><input type="checkbox" id="toggle-fill"> Fill</label>
                 </div>
                 <div class="action-row">
-                    <button id="generate-btn" class="primary-btn">Generate New Orbit</button>
+                    <button id="generate-btn" class="primary-btn">Generate New Mask</button>
                     <button id="download-btn" class="secondary-btn">Export Physical SVG</button>
                 </div>
             </div>
         </section>
 
         <section class="preview-panel">
-            <div id="svg-container">
-                </div>
+            <div id="svg-container"></div>
         </section>
     </main>
 
-    <script src="js/generator.js" defer></script>
+    <script src="generator.js" defer></script>
 </body>
 </html>
